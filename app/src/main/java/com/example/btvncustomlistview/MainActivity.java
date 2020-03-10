@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         bt_update = findViewById(R.id.bt_update);
         lv_show = findViewById(R.id.lv_show);
         contacts = new ArrayList<>();
-        adapter = new CustomAdapter(this, contacts);
+        adapter = new CustomAdapter(this, R.layout.activity_main, contacts);
         lv_show.setAdapter(adapter);
 
 

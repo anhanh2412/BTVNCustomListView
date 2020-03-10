@@ -23,30 +23,17 @@ import java.util.List;
 
 import static com.example.btvncustomlistview.R.drawable.music;
 
-public class CustomAdapter extends BaseAdapter {
+public class CustomAdapter extends ArrayAdapter<Contact> {
     Context context;
+    int resource;
     ArrayList<Contact> arrayList;
 
-    public CustomAdapter(Context context, ArrayList<Contact> arrayList) {
+    public CustomAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Contact> objects) {
+        super(context, resource, objects);
         this.context = context;
-        this.arrayList = arrayList;
+        this.resource = resource;
+        this.arrayList = objects;
     }
-
-    @Override
-    public int getCount() {
-        return arrayList.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return arrayList.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -55,7 +42,7 @@ public class CustomAdapter extends BaseAdapter {
         TextView text_namecs = convertView.findViewById(R.id.text_namecs);
         TextView text_time = convertView.findViewById(R.id.text_time);
         ImageView img_anh = convertView.findViewById(R.id.img_anh);
-//        ImageButton bt_dialog = convertView.findViewById(R.id.bt_dialog);
+        ImageButton bt_dialog = convertView.findViewById(R.id.bt_dialog);
 
         Contact contact = arrayList.get(position);
 
@@ -64,29 +51,29 @@ public class CustomAdapter extends BaseAdapter {
         text_time.setText(contact.getTime());
         img_anh.setBackgroundResource(music);
 
-//        bt_dialog.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showDialog(position);
-//
-//            }
-//        });
+        bt_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(position);
+
+            }
+        });
         return convertView;
     }
 
-//    void showDialog(final int position){
-//        final Dialog dialog = new Dialog(context);
-//        dialog.setContentView(R.layout.dialog_layout);
-//        Button bt_delete = dialog.findViewById(R.id.bt_delete);
-//
-//        bt_delete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                arrayList.remove(position);
-//                notifyDataSetChanged();
-//                dialog.dismiss();
-//            }
-//        });
-//        dialog.show();
-//    }
+    void showDialog(final int position){
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.dialog_layout);
+        Button bt_delete = dialog.findViewById(R.id.bt_delete);
+
+        bt_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrayList.remove(position);
+                notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
 }
