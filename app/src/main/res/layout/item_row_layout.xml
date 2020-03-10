@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/img_anh">
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Mỹ Nhân"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:id="@+id/text_namebh"
+                android:gravity="center">
+
+            </TextView>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="4:27"
+                android:textColor="@android:color/holo_blue_light"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:id="@+id/text_time"
+                android:gravity="center">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Đại Vũ"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:id="@+id/text_namecs"
+                android:gravity="center">
+            </TextView>
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fast_forward_black_24dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_light"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/bt_dialog">
+
+            </ImageButton>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
